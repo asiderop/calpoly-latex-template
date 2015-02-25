@@ -11,14 +11,8 @@
 
 \documentclass[12pt]{ucthesis}
 
-\newif\ifpdf
-\ifx\pdfoutput\undefined
-    \pdffalse % we are not running PDFLaTeX
-\else
-\pdfoutput=1 % we are running PDFLaTeX
-\pdftrue \fi
-
 \usepackage{url}
+\usepackage{ifpdf}
 \ifpdf
 
     \usepackage[pdftex]{graphicx}
@@ -42,13 +36,27 @@
 \usepackage[letterpaper]{geometry}
 \usepackage[overload]{textcase}
 
+\usepackage{verbatim}
 
+\usepackage{titlesec}
+% \titleformat{\chapter}[display]% OLD
+%     {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}% OLD
+% \titlespacing*{\chapter}{0pt}{50pt}{40pt}% OLD
+\titleformat{\chapter}[display]% NEW
+    {\normalfont\centering}{\chaptertitlename\ \thechapter}{12pt}{}% NEW
+\titlespacing*{\chapter}{0pt}{30pt}{20pt}% NEW
 
-\bibliographystyle{abbrv}
+%\titleformat{\section}[block]{first}{label}{12pt}
+
+\titleformat{\section}{}{\thesection}{1em}{}
+\titleformat{\subsection}{}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{}{\theparagraph}{1em}{}
+
 
 \setlength{\parindent}{0.25in} \setlength{\parskip}{6pt}
 
-\geometry{verbose,nohead,tmargin=1.25in,bmargin=1in,lmargin=1.5in,rmargin=1.3in}
+\geometry{verbose,nohead,tmargin=1in,bmargin=1in,lmargin=1.5in,rmargin=1in}
 
 \setcounter{tocdepth}{2}
 
@@ -79,9 +87,23 @@
 % Update fields below!
 \title{This is the Title of My Thesis}
 \author{John Smith}
+
 \degreemonth{February} \degreeyear{2009} \degree{Master of Science}
 \defensemonth{February} \defenseyear{2009}
-\numberofmembers{3} \chair{Zo\"{e} Wood, Ph.D.} \othermemberA{Chris Clark, Ph.D.} \othermemberB{Chris Buckalew, Ph.D.} \field{Computer Science} \campus{San Luis Obispo}
+
+\numberofmembers{3}
+
+\chair{Zo\"{e} Wood, Ph.D.}
+\chairX{Associate Professor of Computer Science}
+
+\othermemberA{Chris Clark, Ph.D.}
+\othermemberAX{Assistant Professor of Computer Science}
+
+\othermemberB{Chris Buckalew, Ph.D.}
+\othermemberBX{Associate Professor of Computer Science}
+
+\field{Computer Science} 
+\campus{San Luis Obispo}
 \copyrightyears{seven}
 
 

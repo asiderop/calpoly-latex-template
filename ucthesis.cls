@@ -230,7 +230,7 @@
 %                 ~~~~~~~~
 %
 % acknowledge environment:
-\def\acknowledgename{Acknowledgements}
+\def\acknowledgename{Acknowledgments}
 %                    ~~~~~~~~~~~~~~~~
 % vitae environment:
 \def\vitaename{Curriculum Vit\ae}
@@ -269,11 +269,14 @@
 
 % The name of your committee's chair
 \def\chair#1{\gdef\@chair{#1}}
+\def\chairX#1{\gdef\@chairX{#1}}
 
 % The names of your other committe members, one per line
 \def\othermemberA#1{\gdef\@othermemberA{#1}}
+\def\othermemberAX#1{\gdef\@othermemberAX{#1}}
 
 \def\othermemberB#1{\gdef\@othermemberB{#1}}
+\def\othermemberBX#1{\gdef\@othermemberBX{#1}}
 \def\othermemberC#1{\gdef\@othermemberC{#1}}
 \def\othermemberD#1{\gdef\@othermemberD{#1}}
 
@@ -339,7 +342,7 @@
 		\addvspace{1.4in} 
 
     A Thesis \par
-    Presented to \par
+    presented to \par
     the Faculty of California Polytechnic State University \par
     \@campus
     
@@ -424,9 +427,12 @@ DATE SUBMITTED: &\@degreemonth~\@degreeyear  \par\\
 
 \par\\
 
-COMMITTEE CHAIR:  &\@chair     \par\\
-COMMITTEE MEMBER: &\@othermemberA     \par\\
-COMMITTEE MEMBER: &\@othermemberB     \par\\
+COMMITTEE CHAIR:  &\@chair   \\*
+                  &\@chairX    \par\\
+COMMITTEE MEMBER: &\@othermemberA     \\*
+                  &\@othermemberAX    \par\\
+COMMITTEE MEMBER: &\@othermemberB     \\*
+                  &\@othermemberBX    \par\\
 \end{tabular}
 
 \end{alwayssingle}
