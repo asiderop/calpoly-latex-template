@@ -10,14 +10,17 @@
 
 
 \documentclass[12pt]{ucthesis}
+
 \newif\ifpdf
 \ifx\pdfoutput\undefined
     \pdffalse % we are not running PDFLaTeX
 \else
 \pdfoutput=1 % we are running PDFLaTeX
 \pdftrue \fi
+
 \usepackage{url}
 \ifpdf
+
     \usepackage[pdftex]{graphicx}
     % Update title and author below...
     \usepackage[pdftex,plainpages=false,breaklinks=true,colorlinks=true,urlcolor=blue,citecolor=blue,%
@@ -29,10 +32,10 @@
                                        ]{hyperref}
     %Options with pdfstartview are FitV, FitB and FitH
     \pdfcompresslevel=1
+
 \else
     \usepackage{graphicx}
 \fi
-
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -76,9 +79,9 @@
 % Update fields below!
 \title{This is the Title of My Thesis}
 \author{John Smith}
-\degreemonth{February} \degreeyear{2007} \degree{Master of Science}
-\defensemonth{February} \defenseyear{2007}
-\numberofmembers{3} \chair{Dr. Zo\"{e} Wood} \othermemberA{Dr. Gene Fisher} \othermemberB{Dr. Chris Buckalew} \field{Computer Science} \campus{San Luis Obispo}
+\degreemonth{February} \degreeyear{2009} \degree{Master of Science}
+\defensemonth{February} \defenseyear{2009}
+\numberofmembers{3} \chair{Zo\"{e} Wood, Ph.D.} \othermemberA{Chris Clark, Ph.D.} \othermemberB{Chris Buckalew, Ph.D.} \field{Computer Science} \campus{San Luis Obispo}
 \copyrightyears{seven}
 
 
@@ -87,12 +90,11 @@
 
 \begin{frontmatter}
 
-% Custom made for Cal Poly (by Mark Barry).
+% Custom made for Cal Poly (by Mark Barry, modified by Andrew Tsui).
 \copyrightpage
 
-% Custom made for Cal Poly (by Mark Barry).
-\approvalpage
-
+% Custom made for Cal Poly (by Andrew Tsui).
+\committeemembershippage
 
 \begin{abstract}
 
@@ -118,7 +120,6 @@ The bibliography section is very easy to create.  When gathering references, I u
 %\end{acknowledgements}
 
 
-\addcontentsline{toc}{chapter}{Contents}
 \tableofcontents
 
 

@@ -368,6 +368,7 @@
 }}
 
 % APPROVALPAGE - Cal Poly (Added by Mark Barry 2/07)
+%              - NOTE: No longer used as of 11/08.  Use \committeemembershippage
 
 \def\approvalpage{
 \begin{alwayssingle}
@@ -404,30 +405,49 @@ DATE SUBMITTED: \@degreemonth~\@degreeyear
 \end{alwayssingle}
 }
 
+
+% COMMITTEEMEMBERSHIPPAGE - Cal Poly (Added by Andrew Tsui 6/09)
+
+\def\committeemembershippage{
+\begin{alwayssingle}
+
+\begin{center}
+		COMMITTEE MEMBERSHIP
+\end{center}
+\par
+\vspace*{0.5in}
+
+\begin{tabular}{lp{3in}}
+TITLE:  &\@title      \par\\
+AUTHOR: &\@author     \par\\
+DATE SUBMITTED: &\@degreemonth~\@degreeyear  \par\\
+
+\par\\
+
+COMMITTEE CHAIR:  &\@chair     \par\\
+COMMITTEE MEMBER: &\@othermemberA     \par\\
+COMMITTEE MEMBER: &\@othermemberB     \par\\
+\end{tabular}
+
+\end{alwayssingle}
+}
+
+
+
 % COPYRIGHTPAGE - Cal Poly (Added by Mark Barry 2/07)
+%                          (Modified by Andrew Tsui 6/09: New digital submission format)
 %
 
 \def\copyrightpage{
 \begin{alwayssingle}
 %\setcounter{page}{2}
 \fmfont
-AUTHORIZATION FOR REPRODUCTION OF MASTER'S THESIS
-
-\vspace{1in}
-\noindent
-I reserve the reproduction rights of this thesis for a
-period of~\@copyrightyears~years from the date of submission. I waive
-reproduction rights after the time span has expired. \par
-\vspace{1in}
-
-\noindent
-\rule[0in]{4in}{0.2mm} \\
-Signature \vspace{.5in} \\
-
-\noindent
-\rule[0in]{4in}{0.2mm} \\
-Date
-
+\vspace*{7in}
+\begin{center}
+\copyright~\@degreeyear\\
+\@author\\
+ALL RIGHTS RESERVED
+\end{center}
 \end{alwayssingle}
 }
 
@@ -447,11 +467,9 @@ Date
 %\setcounter{page}{1}
 \begin{center}
 {\fmfont
-{\bfseries \abstractname}\par
-\vspace{.5in}
+{\bfseries 
+\abstractname}\par
 \@title\par
-\vspace{.1in}
-by\par
 \vspace{.1in}
 \@author\par
 %{\@degree} in \@field\par
@@ -459,7 +477,7 @@ by\par
 %University of California at {\@campus}\par
 %\vspace{.1in}
 %{\@chair}, Chair}
-}\vspace{.1in}
+}
 \end{center}}
 
 \def\endabstract{\par\vfil\null\end{alwayssingle}
