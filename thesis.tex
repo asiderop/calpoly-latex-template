@@ -1,85 +1,106 @@
 
-% Cal Poly Thesis
+% Cal Poly Thesis Template
 % 
-% based on UC Thesis format
+% Based on UC Thesis format.
 %
-% modified by Mark Barry 2/07.
+% Modified by Mark Barry 2007/02
+% Modified by Andrew Tsui 2009/06
+% Modified by Timothey Adam 2014/06
+% Modified by Alexander Sideropoulos 2014/12
 %
-
-
-
+% Directions:
+%  
+%  1.  Fill in all parts of this template (look for [EDIT] below)
+%  2.  Place all images in subdirectory (optional, but good organization)
+%  3.  Place all .tex files in subdirectory (optional, but good organization)
+%  4.  Include content (e.g. .tex files) where appropriate (look for [CONTENT] below)
+%
 
 \documentclass[12pt]{ucthesis}
 
-\usepackage{url}
-\usepackage{ifpdf}
-\ifpdf
-
-    \usepackage[pdftex]{graphicx}
-    \graphicspath{ {images/} }
-    % Update title and author below...
-    \usepackage[pdftex,plainpages=false,breaklinks=true,colorlinks=true,urlcolor=blue,citecolor=blue,%
-                                       linkcolor=blue,bookmarks=true,bookmarksopen=true,%
-                                       bookmarksopenlevel=3,pdfstartview=FitV,
-                                       pdfauthor={!!Author goes here!!},
-                                       pdftitle={!!Title goes here!!},
-                                       pdfkeywords={thesis, masters, cal poly}
-                                       ]{hyperref}
-    %Options with pdfstartview are FitV, FitB and FitH
-    \pdfcompresslevel=1
-
-\else
-    \usepackage{graphicx}
-\fi
-
+\usepackage{float}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage[letterpaper]{geometry}
 \usepackage[overload]{textcase}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{ifpdf}
+\usepackage{needspace}
 
-\usepackage{verbatim}
+\ifpdf
+    \usepackage[pdftex]{graphicx}
+    \usepackage[pdftex,plainpages=false,pdfpagelabels,breaklinks=true,colorlinks=true,
+                % CalPoly formatting guidelines require only black text, but links
+                % really should be blue...
+                urlcolor=black,citecolor=black,linkcolor=black,
+                % Options with pdfstartview are: FitV, FitB and FitH
+                bookmarks=true,bookmarksopen=true,bookmarksopenlevel=3,pdfstartview=FitV,
+                % [EDIT] Update author
+                pdfauthor={Alexander Paul Sideropoulos},
+                % [EDIT] Update title
+                pdftitle={dCAMP: Distributed Common API for Measuring Performance},
+                % [EDIT] Update keywords
+                pdfkeywords={thesis, masters, cal poly, distributed computing, performance monitoring}
+                ]{hyperref}
+    \pdfcompresslevel=1
+    \usepackage[all]{hypcap}  % Link refs to above figures; must load after hyperref
+\else
+    \usepackage{graphicx}
+\fi
 
+\graphicspath{ {images/} }  % [EDIT] Specify where images live
+
+% Customized title formatting
 \usepackage{titlesec}
-% \titleformat{\chapter}[display]% OLD
-%     {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}% OLD
-% \titlespacing*{\chapter}{0pt}{50pt}{40pt}% OLD
-\titleformat{\chapter}[display]% NEW
-    {\normalfont\centering}{\chaptertitlename\ \thechapter}{12pt}{}% NEW
-\titlespacing*{\chapter}{0pt}{30pt}{20pt}% NEW
-
-%\titleformat{\section}[block]{first}{label}{12pt}
+\titleformat{\chapter}[display]
+    {\normalfont\centering}{\chaptertitlename\ \thechapter}{12pt}{}
+\titlespacing*{\chapter}{0pt}{30pt}{20pt}
 
 \titleformat{\section}{}{\thesection}{1em}{}
 \titleformat{\subsection}{}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{}{\thesubsubsection}{1em}{}
 \titleformat{\paragraph}{}{\theparagraph}{1em}{}
 
+% No line spacing with lists
+\setlist{nolistsep}
 
-\setlength{\parindent}{0.25in} \setlength{\parskip}{6pt}
-
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{6pt plus 3pt minus 3pt}
 \geometry{verbose,nohead,tmargin=1in,bmargin=1in,lmargin=1.5in,rmargin=1in}
 
-\setcounter{tocdepth}{2}
+% Include all headings in table of contents
+\setcounter{tocdepth}{4}
+% Print all section headings with numbers
+\setcounter{secnumdepth}{4}
 
+% Command to add section to table of contents without page number.
+%
+% Note: This command only works when hyperref package is in use. Removing
+%       one of the empty braces "{}" should work, otherwise. --ap
+\newcommand{\addtocsection}[1]{\addtocontents{toc}{\protect\contentsline{part}{#1}{}{}}}
 
-% Different font in captions (single-spaced, bold) ------------
-\newcommand{\captionfonts}{\small\bf\ssp}
+% Different font in captions (small, single-spaced, bold label).
+\usepackage[margin=15pt,font={small,singlespacing},labelfont={small,bf},labelsep=endash]{caption}
 
-\makeatletter  % Allow the use of @ in command names
-\long\def\@makecaption#1#2{%
-  \vskip\abovecaptionskip
-  \sbox\@tempboxa{{\captionfonts #1: #2}}%
-  \ifdim \wd\@tempboxa >\hsize
-    {\captionfonts #1: #2\par}
-  \else
-    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
-  \fi
-  \vskip\belowcaptionskip}
-\makeatother   % Cancel the effect of \makeatletter
-% ---------------------------------------
+% Add penalties so LaTeX tries to avoid widows and orphans
+\widowpenalty=600
+\clubpenalty=600
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% dCAMP Thesis
+% Copyright 2014, Alexander Paul Sideropoulos
+% All Rights Reserved
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+% Custom dCAMP commands
+\newcommand{\camp}{\emph{CAMP }}
+\newcommand{\campns}{\emph{CAMP}}
+\newcommand{\dcamp}{\emph{dCAMP }}
+\newcommand{\dcampns}{\emph{dCAMP}}
 
 \begin{document}
 

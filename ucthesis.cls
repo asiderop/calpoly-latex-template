@@ -189,19 +189,19 @@
 % supporting the title and approval pages.
 %
 % \tableofcontents:
-\def\contentsname{Contents}
+\def\contentsname{TABLE OF CONTENTS}
 %                 ~~~~~~~~
 %
 % \listoffigures:
-\def\listfigurename{List of Figures}
+\def\listfigurename{LIST OF FIGURES}
 %                   ~~~~~~~~~~~~~~~
 %
 % \listoftables:
-\def\listtablename{List of Tables}
+\def\listtablename{LIST OF TABLES}
 %                  ~~~~~~~~~~~~~~
 %
 % \thebibliography:
-\def\bibname{Bibliography}
+\def\bibname{BIBLIOGRAPHY}
 %            ~~~~~~~~~~~~
 %
 % \theindex:
@@ -217,20 +217,20 @@
 %              ~~~~~
 %
 % \chapter:
-\def\chaptername{Chapter}
+\def\chaptername{CHAPTER}
 %                ~~~~~~~
 % \appendix:
-\def\appendixname{Appendix}
+\def\appendixname{APPENDIX}
 %                 ~~~~~~~~
 % \part
 \def\partname{Part}
 %             ~~~~
 % abstract environment:
-\def\abstractname{Abstract}
+\def\abstractname{ABSTRACT}
 %                 ~~~~~~~~
 %
 % acknowledge environment:
-\def\acknowledgename{Acknowledgments}
+\def\acknowledgename{ACKNOWLEDGMENTS}
 %                    ~~~~~~~~~~~~~~~~
 % vitae environment:
 \def\vitaename{Curriculum Vit\ae}
@@ -271,16 +271,15 @@
 \def\chair#1{\gdef\@chair{#1}}
 \def\chairX#1{\gdef\@chairX{#1}}
 
-% The names of your other committe members, one per line
+% The names of your other committee members, one per line
 \def\othermemberA#1{\gdef\@othermemberA{#1}}
 \def\othermemberAX#1{\gdef\@othermemberAX{#1}}
-
 \def\othermemberB#1{\gdef\@othermemberB{#1}}
 \def\othermemberBX#1{\gdef\@othermemberBX{#1}}
 \def\othermemberC#1{\gdef\@othermemberC{#1}}
 \def\othermemberD#1{\gdef\@othermemberD{#1}}
 
-% The names of your other committe members, one per line
+% The names of your other committee members, one per line
 \def\othermembers#1{\gdef\@othermembers{#1}}
 
 % The number of committee members, which affects both the
@@ -473,8 +472,7 @@ ALL RIGHTS RESERVED
 %\setcounter{page}{1}
 \begin{center}
 {\fmfont
-{\bfseries 
-\abstractname}\par
+{\abstractname}\par
 \@title\par
 \vspace{.1in}
 \@author\par
@@ -513,7 +511,7 @@ Thesis Committee Chair
 
 \newenvironment{acknowledgements}{\begin{alwayssingle}
 \begin{center}
-{\large \bfseries \acknowledgename}
+{\acknowledgename}
 \end{center}
 }{\end{alwayssingle}}
 
@@ -808,7 +806,7 @@ Thesis Committee Chair
 \def\thechapter       {\arabic{chapter}}
 \def\thesection       {\thechapter.\arabic{section}}
 \def\thesubsection    {\thesection.\arabic{subsection}}
-\def\thesubsubsection {\thesubsection .\arabic{subsubsection}}
+\def\thesubsubsection {\thesubsection.\arabic{subsubsection}}
 \def\theparagraph     {\thesubsubsection.\arabic{paragraph}}
 \def\thesubparagraph  {\theparagraph.\arabic{subparagraph}}
 
@@ -941,13 +939,12 @@ Thesis Committee Chair
   {\ssp\@starttoc{toc}}\if@restonecol\twocolumn\fi}
 
 \def\l@part#1#2{\addpenalty{-\@highpenalty}%
-   \addvspace{2.25em plus\p@}% space above part line
+   \addvspace{0.3em plus\p@}% space above part line
    \begingroup
    \@tempdima 3em         % width of box holding part number, used by
      \parindent \z@ \rightskip \@pnumwidth             %% \numberline
      \parfillskip -\@pnumwidth
-     {\large \bfseries          % set line in \large boldface
-     \leavevmode          % TeX command to enter horizontal mode.
+     {\leavevmode          % TeX command to enter horizontal mode.
      #1\hfil \hbox to\@pnumwidth{\hss #2}}\par
      \nobreak             % Never break after part entry
     \global\@nobreaktrue                        %% Added 24 May 89 as
@@ -965,7 +962,6 @@ Thesis Committee Chair
    \begingroup
      \parindent \z@ \rightskip \@pnumwidth
      \parfillskip -\@pnumwidth
-     \bfseries                  % Boldface.
      \leavevmode          % TeX command to enter horizontal mode.
       \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to
       \hskip -\leftskip            %% 25 Jan 88 change to \numberline
